@@ -1,0 +1,1 @@
+module "github.com/cafune1853/go_start/web"
