@@ -19,9 +19,9 @@ func viewHandler(w http.ResponseWriter, r *http.Request){
 	page, err := core.LoadPage(title)
 	if err != nil{
 		renderPage(w, "not_found.html", &core.Page{Title: title})
-	}else{
-		renderPage(w, "view.html", page)
+		return
 	}
+	renderPage(w, "view.html", page)
 }
 
 func renderPage(w http.ResponseWriter, templateFile string, page *core.Page) {
