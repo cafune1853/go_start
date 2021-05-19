@@ -12,7 +12,7 @@ func TestPage(t *testing.T) {
 		t.Error("save err")
 	}
 	loadedPage, loadErr := loadPage("test")
-	if loadErr != nil{
+	if loadErr != nil {
 		t.Error("load error")
 	}
 	fmt.Println(string(loadedPage.Body))
