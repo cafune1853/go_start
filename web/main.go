@@ -22,7 +22,7 @@ func getTitle(path string) (string, error){
 
 func makeHandler(cf func(w http.ResponseWriter, r *http.Request, title string)) http.HandlerFunc{
 	return func(writer http.ResponseWriter, request *http.Request) {
-		title, err :=getTitle(request.URL.Path)
+		title, err := getTitle(request.URL.Path)
 		if err != nil {
 			http.NotFound(writer, request)
 			return
