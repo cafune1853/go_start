@@ -16,8 +16,17 @@ func simpleHandler(w http.ResponseWriter, r *http.Request){
 func viewHandler(w http.ResponseWriter, r *http.Request){
 	fmt.Println("view Handler invoked")
 	title := r.URL.Path[len("/view/"):]
-	page, _ := core.LoadPage(title)
-	fmt.Fprintf(w, "<h1>%s</h1><div>%s</div>", page.Title, page.Body)
+	page, err := core.LoadPage(title)
+	if err != nil{
+		renderPage(w, "not_found.html", &core.Page{Title: title})
+	}else{
+		renderPage(w, "view.html", page)
+	}
+}
+
+func renderPage(w http.ResponseWriter, templateFile string, page *core.Page) {
+	t, _ := template.ParseFiles(templateFile)
+	t.Execute(w, page)
 }
 
 func editHandler(w http.ResponseWriter, r *http.Request){
@@ -27,8 +36,7 @@ func editHandler(w http.ResponseWriter, r *http.Request){
 	if err != nil{
 		page = &core.Page{Title: title}
 	}
-	t, _ := template.ParseFiles("edit.html")
-	t.Execute(w, page)
+	renderPage(w, "edit.html", page)
 }
 
 func saveHandler(w http.ResponseWriter, r *http.Request){
