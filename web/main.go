@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/cafune1853/go_start/web/core"
+	"html/template"
 	"log"
 	"net/http"
 )
@@ -26,11 +27,8 @@ func editHandler(w http.ResponseWriter, r *http.Request){
 	if err != nil{
 		page = &core.Page{Title: title}
 	}
-	fmt.Fprintf(w, "<h1>Editing %s</h1>"+
-		"<form action=\"/save/%s\" method=\"POST\">"+
-		"<textarea name=\"body\">%s</textarea><br>"+
-		"<input type=\"submit\" value=\"Save\">"+
-		"</form>", page.Title, page.Title, page.Body)
+	t, _ := template.ParseFiles("edit.html")
+	t.Execute(w, page)
 }
 
 func saveHandler(w http.ResponseWriter, r *http.Request){
