@@ -5,8 +5,6 @@ import (
 	"testing"
 )
 
-
-
 func TestCommon(t *testing.T) {
 	type TX struct {
 		a int

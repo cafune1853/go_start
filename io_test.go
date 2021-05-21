@@ -11,7 +11,7 @@ func TestIO(t *testing.T) {
 	if err == nil {
 		str := string(content)
 		fmt.Println(str)
-	}else{
+	} else {
 		fmt.Println("File not found")
 	}
 }
