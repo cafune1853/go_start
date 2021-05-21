@@ -5,17 +5,17 @@ import (
 	"testing"
 )
 
-type Person struct{
-	a int32
-	c *byte
-	b int32
-}
-
 
 
 func TestCommon(t *testing.T) {
-	var si []int
-	var sip = &si
-	*sip = make([]int, 12)
-	fmt.Printf("%p %v %v", sip, si, si == nil)
+	type TX struct {
+		a int
+		b float64
+		c string
+	}
+	tx := &TX{7, -2.35, "abc\tdef"}
+	fmt.Printf("%v\n", tx)
+	fmt.Printf("%+v\n", tx)
+	fmt.Printf("%#v\n", tx)
+	fmt.Printf("%q %x %T", []byte("kk"), "中国", "sdfsf")
 }
