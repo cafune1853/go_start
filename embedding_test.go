@@ -6,15 +6,13 @@ import (
 )
 
 type A struct {
-
 }
 
-func (a A) String() string{
+func (a A) String() string {
 	return "A"
 }
 
 type B struct {
-
 }
 
 //func (b B) String() string{
@@ -30,7 +28,6 @@ type AB struct {
 //func (ab AB) String() string{
 //	return fmt.Sprintf("%v", ab.kk)
 //}
-
 
 func TestEmbeddedStruct(t *testing.T) {
 	ab := AB{&A{}, &B{}, 10}
