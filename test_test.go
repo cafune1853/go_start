@@ -15,5 +15,15 @@ func TestCommon(t *testing.T) {
 	fmt.Printf("%v\n", tx)
 	fmt.Printf("%+v\n", tx)
 	fmt.Printf("%#v\n", tx)
-	fmt.Printf("%q %x %T", []byte("kk"), "中国", "sdfsf")
+	fmt.Printf("%q %x %T\n", []byte("kk"), "中国", "sdfsf")
+
+	sl := []int{1, 2, 3}
+	pr(sl...)
+}
+
+func pr(qq ...int) {
+	fmt.Printf("%T\n", qq)
+	for x := range qq {
+		fmt.Println(x)
+	}
 }
