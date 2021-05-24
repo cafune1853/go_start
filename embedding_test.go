@@ -6,6 +6,7 @@ import (
 )
 
 type A struct {
+	Q string
 }
 
 func (a A) String() string {
@@ -31,5 +32,5 @@ type AB struct {
 
 func TestEmbeddedStruct(t *testing.T) {
 	ab := AB{&A{}, &B{}, 10}
-	fmt.Println(ab.String())
+	fmt.Println(ab.A.Q)
 }
