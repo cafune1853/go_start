@@ -7,6 +7,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	_ "net/http/pprof"
 	"regexp"
 )
 

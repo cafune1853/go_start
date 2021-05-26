@@ -2,28 +2,24 @@ package go_start
 
 import (
 	"fmt"
+	"github.com/cafune1853/go_start/web/core"
 	"testing"
 )
 
 func TestCommon(t *testing.T) {
-	type TX struct {
-		a int
-		b float64
-		c string
-	}
-	tx := &TX{7, -2.35, "abc\tdef"}
-	fmt.Printf("%v\n", tx)
-	fmt.Printf("%+v\n", tx)
-	fmt.Printf("%#v\n", tx)
-	fmt.Printf("%q %x %T\n", []byte("kk"), "中国", "sdfsf")
 
-	sl := []int{1, 2, 3}
-	pr(sl...)
+	fmt.Println(core.Page{})
 }
 
-func pr(qq ...int) {
-	fmt.Printf("%T\n", qq)
-	for x := range qq {
-		fmt.Println(x)
-	}
+type X struct {
+	Name string
+}
+
+func (x *X)getName()string  {
+	return x.Name
+}
+
+type Y struct {
+	X
+	Name string
 }
