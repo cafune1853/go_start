@@ -7,7 +7,7 @@ import (
 )
 
 func TestCommon(t *testing.T) {
-
+	fmt.Println("kk")
 	fmt.Println(core.Page{})
 }
 
